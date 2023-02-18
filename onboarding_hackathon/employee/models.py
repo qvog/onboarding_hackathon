@@ -3,7 +3,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.utils.translation import gettext_lazy as _
 
-from .employees import EmployeeManager
+from .managers import EmployeeManager
 
 
 class Employee(AbstractBaseUser, PermissionsMixin):

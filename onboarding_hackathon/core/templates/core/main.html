@@ -11,6 +11,7 @@
 
 </head>
 <body class="bg-white">
+    {% if request.user.is_authenticated %}
     <nav class="sticky top-0 flex items-center justify-between px-4 py-4 bg-violet-500">
         <div>
             <a href="/" class="text-xl text-yellow-100">Onboarding</a>
@@ -22,6 +23,7 @@
                 <a href="#" class="px-5 py-3 rounded-xl text-white bg-violet-600 hover:bg-violet-700">Личный кабинет</a>
         </div>
     </nav>
+    {% endif %}
 
         {% block content %}
         {% endblock %}     

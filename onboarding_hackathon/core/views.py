@@ -1,19 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+
+#from employee.models import Employee
 
 def frontpage(request):
     return render(request, 'core/frontpage.html')
 
 def login(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
-
-        if form.is_valid():
-            user = form.save()
-
-            login(request, user)
-
-            return redirect('frontpage.html')
-    else:
-        form = SignUpForm()
+        identifier = request.POST['identifier']
+        password = request.POST['password']
+        user = authenticate(identifier=identifier, password=password)
+        if user is not None:
+            if user.is_active:
+                return redirect('/frontpage/')
+            else:
+                raise ValueError('Something trouble')
     
-    return render(request, 'core/login.html', {'form': form})
+    return render(request, 'core/login.html')
