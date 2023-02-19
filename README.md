@@ -1,7 +1,7 @@
 Onboarding
 
 ### Технологии:
-- Django 4.0.2
+- Django 4.0.4
 - Python 3.10.4
 - HTML, CSS (Tailwind)
 - SQLlite
