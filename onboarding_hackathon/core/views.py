@@ -6,6 +6,9 @@ from django.contrib.auth import authenticate, login
 def frontpage(request):
     return render(request, 'core/frontpage.html')
 
+def newspage(request):
+    return render(request, 'core/newspage.html')
+
 def login(request):
     if request.method == 'POST':
         identifier = request.POST['identifier']
